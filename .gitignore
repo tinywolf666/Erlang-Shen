@@ -1,3 +1,6 @@
+# Yolo的权重、数据集等
+/yolov12/runs
+
 # Prerequisites
 *.d
 
