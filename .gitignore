@@ -1,6 +1,9 @@
 # Yolo的权重、数据集等
 /yolov12/runs
 
+# 编译文件
+/run_file/build
+
 # Prerequisites
 *.d
 
