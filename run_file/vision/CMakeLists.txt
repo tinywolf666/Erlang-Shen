@@ -1,5 +1,4 @@
 add_library(vision_lib
-        ${CMAKE_CURRENT_SOURCE_DIR}/src/test.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/src/yolov12_openvino.cpp
 )
 
