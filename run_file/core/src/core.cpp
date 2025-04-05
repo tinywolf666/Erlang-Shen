@@ -10,7 +10,7 @@
 
 using namespace ov;
 using namespace cv;
-
+using namespace std;
 
 int main()
 {
@@ -21,13 +21,21 @@ int main()
     MODEL::OpenVinoInitial(_config._parameters.xml_path, compiledModel);
     // 初始化模型设置
 
-    string path = "/home/yu/文档/erlangShen_ws/yolov12/1.jpg";
+    string path = "/home/yu/文档/erlangShen_ws/yolov12/3.jpg";
     Mat img = imread(path);
     model.ImgPreprocess(img, 640);
+
+    // 开始计时
     auto start = std::chrono::high_resolution_clock::now();
-    model.Inference(compiledModel);
+    auto out_date = model.Inference(compiledModel);
+    model.Postprocess(out_date);
+    // 结束计时
     auto end = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double, std::milli> duration = end - start;
+
+
+    std::vector<std::string> class_names = {"0", "1"};
+    model.DrawResults(*model.img, class_names);
 
     printf("时间：%f", duration.count());
 }
