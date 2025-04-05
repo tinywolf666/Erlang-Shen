@@ -92,6 +92,7 @@ void MODEL::Postprocess(const float *output_data)
         float conf = output_data[4 * num_pres + i];
         float cls_id = output_data[5 * num_pres + i];
 
+        // 测试哈哈哈
         InferenceResult r;
         r.box = Rect2f(x, y, w, h);
         r.confidence = conf;
